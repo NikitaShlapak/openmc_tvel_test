@@ -33,8 +33,8 @@ fig, ax = plt.subplots(2,2)
 universe.plot(width=(50, 50),pixels=(250,250),basis='xz', origin=(0,0,3500/2-10), axes=ax[0][0])
 universe.plot(width=(50, 50),pixels=(250,250),basis='xz', origin=(0,0,0), axes=ax[1][1])
 universe.plot(width=(50, 50),pixels=(250,250),basis='xz', origin=(0,0,-3500/2+10), axes=ax[0][1])
-universe.plot(width=(50, 50),pixels=(500,500),basis='xy', origin=(0,0,0), axes=ax[1][0])
-plt.savefig('geometry.jpg')
+universe.plot(width=(100, 100),pixels=(500,500),basis='xy', origin=(0,0,0), axes=ax[1][0])
+plt.savefig('plots/geometry.jpg')
 
 geometry = openmc.Geometry(universe)
 
@@ -48,9 +48,9 @@ uniform_dist = openmc.stats.Box([-10,-10,-3500/2],[10,10,3500/2], only_fissionab
 setting.source = openmc.source.Source(space=uniform_dist)
 
 #XML export
-materials.export_to_xml()
-geometry.export_to_xml()
-setting.export_to_xml()
+materials.export_to_xml('xmls/materials.xml')
+geometry.export_to_xml('xmls/geometry.xml')
+setting.export_to_xml('xmls/setting.xml')
 
 #RUN
 openmc.run()
