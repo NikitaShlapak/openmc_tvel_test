@@ -52,10 +52,10 @@ if __name__ == "__main__":
     setting.source = openmc.source.Source(space=uniform_dist)
 
     # Tallies
-    flux_tally = openmc.Tally()
+    flux_tally = openmc.Tally(name='flux')
     flux_tally.scores = ['flux']
 
-    U_tally = openmc.Tally()
+    U_tally = openmc.Tally(name='fuel')
     U_tally.scores = ['fission', 'total']
     U_tally.nuclides = ['U235', 'U238']
 
