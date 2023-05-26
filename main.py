@@ -17,20 +17,21 @@ if __name__ == "__main__":
     # Plotting by universe...
     colors = {water_mat: (120, 120, 255), cladding_mat: 'black', fuel_mat: 'green'}
     color_data = dict(color_by='material', colors=colors)
+    width = (120,120)
 
     fig, ax = plt.subplots(2, 2)
 
-    universe.plot(width=(100, 100), pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, 3500 / 2 - 10), axes=ax[0][0])
-    universe.plot(width=(100, 100), pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, 0), axes=ax[1][1])
-    universe.plot(width=(100, 100), pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, -3500 / 2 + 10), axes=ax[0][1])
-    universe.plot(width=(100, 100), pixels=(250, 250), basis='xy', **color_data, origin=(0, 0, 0), axes=ax[1][0])
+    universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, 3500 / 2 - 10), axes=ax[0][0])
+    universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, 0), axes=ax[1][1])
+    universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, -3500 / 2 + 10), axes=ax[0][1])
+    universe.plot(width=width, pixels=(250, 250), basis='xy', **color_data, origin=(0, 0, 0), axes=ax[1][0])
     plt.savefig('plots/geometry.jpg')
 
     # ...and by openmc.Plots
     plots = [openmc.Plot(), openmc.Plot(), openmc.Plot(), openmc.Plot(), ]
     for i in range(4):
         # plots[i].id=(i+1)*111
-        plots[i].width = (100, 100)
+        plots[i].width = width
         plots[i].pixels = (500, 500)
         plots[i].basis = 'xz'
         plots[i].color_by = 'material'

@@ -1,12 +1,12 @@
  =========================>     TALLY 2: FUEL     <=========================
 
  U235
-   Fission Rate                         0.290696 +/- 0.000848879
-   Total Reaction Rate                  0.461133 +/- 0.00104667
+   Fission Rate                         0.345498 +/- 0.000917353
+   Total Reaction Rate                  0.530874 +/- 0.00115754
  U238
-   Fission Rate                         0.039905 +/- 0.000104126
-   Total Reaction Rate                  4.08448 +/- 0.00614372
+   Fission Rate                         0.0405639 +/- 9.76171e-05
+   Total Reaction Rate                  4.24053 +/- 0.00783966
  =========================>     TALLY 1: FLUX     <=========================
 
  Total Material
-   Flux                                 56.5325 +/- 0.0600096
+   Flux                                 59.4711 +/- 0.0574857
