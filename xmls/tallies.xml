@@ -2,7 +2,7 @@
 <tallies>
   <tally id="2" name="fuel">
     <nuclides>U235 U238</nuclides>
-    <scores>fission total</scores>
+    <scores>fission total absorption elastic scatter decay-rate</scores>
   </tally>
   <tally id="1" name="flux">
     <scores>flux</scores>

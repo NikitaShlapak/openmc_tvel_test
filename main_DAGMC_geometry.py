@@ -1,6 +1,6 @@
 import openmc
 
-from utils.geometry import universe
+# from utils.geometry import universe
 # from utils.DAGMC_geometry import universe
 from utils.material import water_mat,  fuel_mat
 
@@ -14,6 +14,11 @@ if __name__ == "__main__":
     materials = openmc.Materials([fuel_mat, water_mat, ])
 
     # Geometry
+    universe = openmc.DAGMCUniverse(filename='dagmc.h5m')
+    # cell = openmc.Cell(cell_id=228)
+    # cell.fill = dag_univ
+    # universe = openmc.Universe(cells=[cell])
+    print(universe.get_all_materials())
     geometry = openmc.Geometry(universe)
 
     # Plotting by universe...
@@ -21,13 +26,13 @@ if __name__ == "__main__":
     color_data = dict(color_by='material', colors=colors)
     width = (120,120)
 
-    fig, ax = plt.subplots(2, 2)
+    # fig, ax = plt.subplots(2, 2)
 
-    # universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, 3500 / 2 - 10), axes=ax[0][0])
-    universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, 0), axes=ax[1][1])
-    # universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, -3500 / 2 + 10), axes=ax[0][1])
-    universe.plot(width=width, pixels=(250, 250), basis='xy', **color_data, origin=(0, 0, 0), axes=ax[1][0])
-    plt.savefig('plots/geometry.jpg')
+    # # universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, 3500 / 2 - 10), axes=ax[0][0])
+    # universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, 0), axes=ax[1][1])
+    # # universe.plot(width=width, pixels=(250, 250), basis='xz', **color_data, origin=(0, 0, -3500 / 2 + 10), axes=ax[0][1])
+    # universe.plot(width=width, pixels=(250, 250), basis='xy', **color_data, origin=(0, 0, 0), axes=ax[1][0])
+    # plt.savefig('plots/geometry.jpg')
 
     # ...and by openmc.Plots
     plots = [openmc.Plot(), openmc.Plot(), openmc.Plot(), openmc.Plot(), ]
@@ -38,10 +43,10 @@ if __name__ == "__main__":
         plots[i].basis = 'xz'
         plots[i].color_by = 'material'
         plots[i].colors = colors
-    plots[0].origin = (0, 0, 3500 / 2 -10)
-    plots[2].origin = (0, 0, -3500/2+10)
+    plots[0].origin = (0, 0, 3500 / 2)
+    plots[2].origin = (0, 0, 3500+300)
     plots[-1].basis = 'xy'
-
+    plots[-1].origin = (0, 0, 3500 / 2)
 
     plots = openmc.Plots(plots)
 
