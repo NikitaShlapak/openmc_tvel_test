@@ -1,28 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plots>
-  <plot basis="xz" color_by="material" id="1" type="slice">
-    <origin>0 0 1750.0</origin>
+  <plot basis="xz" color_by="material" id="3" type="slice">
+    <origin>0 0 1740.0</origin>
     <width>120 120</width>
     <pixels>500 500</pixels>
     <color id="1" rgb="0 128 0" />
     <color id="3" rgb="120 120 255" />
   </plot>
-  <plot basis="xz" color_by="material" id="2" type="slice">
+  <plot basis="xz" color_by="material" id="4" type="slice">
     <origin>0.0 0.0 0.0</origin>
     <width>120 120</width>
     <pixels>500 500</pixels>
     <color id="1" rgb="0 128 0" />
     <color id="3" rgb="120 120 255" />
   </plot>
-  <plot basis="xz" color_by="material" id="3" type="slice">
-    <origin>0 0 3800</origin>
+  <plot basis="xz" color_by="material" id="5" type="slice">
+    <origin>0 0 -1740.0</origin>
     <width>120 120</width>
     <pixels>500 500</pixels>
     <color id="1" rgb="0 128 0" />
     <color id="3" rgb="120 120 255" />
   </plot>
-  <plot basis="xy" color_by="material" id="4" type="slice">
-    <origin>0 0 1750.0</origin>
+  <plot basis="xy" color_by="material" id="6" type="slice">
+    <origin>0.0 0.0 0.0</origin>
     <width>120 120</width>
     <pixels>500 500</pixels>
     <color id="1" rgb="0 128 0" />

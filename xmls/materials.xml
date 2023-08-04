@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <materials>
-  <material depletable="true" id="1" name="mat1">
+  <material depletable="true" id="1" name="mat1" volume="31415.926535897932">
     <density units="g/cm3" value="8.3" />
     <nuclide ao="0.0004523305496957069" name="U234" />
     <nuclide ao="0.05060678291113409" name="U235" />

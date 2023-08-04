@@ -1,4 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <geometry>
-  <dagmc_universe filename="dagmc.h5m" id="1" />
+  <cell id="1" material="1" region="-1 9 -8" universe="1" />
+  <cell id="2" material="3" region="1 -2 3 -4 5 6 -7 9 -8" universe="1" />
+  <surface coeffs="0.0 0.0 10" id="1" type="z-cylinder" />
+  <surface boundary="reflective" coeffs="17.32050807568877" id="2" type="y-plane" />
+  <surface boundary="reflective" coeffs="-17.32050807568877" id="3" type="y-plane" />
+  <surface boundary="reflective" coeffs="1.7320508075688772 1.0 0.0 34.64101615137754" id="4" type="plane" />
+  <surface boundary="reflective" coeffs="-1.7320508075688772 1.0 0.0 -34.64101615137754" id="5" type="plane" />
+  <surface boundary="reflective" coeffs="1.7320508075688772 1.0 0.0 -34.64101615137754" id="6" type="plane" />
+  <surface boundary="reflective" coeffs="-1.7320508075688772 1.0 0.0 34.64101615137754" id="7" type="plane" />
+  <surface boundary="vacuum" coeffs="50.0" id="8" type="z-plane" />
+  <surface boundary="vacuum" coeffs="-50.0" id="9" type="z-plane" />
 </geometry>

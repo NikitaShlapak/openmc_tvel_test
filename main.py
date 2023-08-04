@@ -1,10 +1,12 @@
 import openmc
+from openmc import deplete, stats
 
 from utils.geometry import universe
 # from utils.DAGMC_geometry import universe
 from utils.material import water_mat,  fuel_mat
 
 openmc.config['cross_sections'] = '/media/main/data/neutron_libs/jeff-3.3-hdf5/cross_sections.xml'
+openmc.config['chain_file'] = '/media/main/data/neutron_libs/chains/chain_endfb71_pwr.xml'
 
 import matplotlib.pyplot as plt
 import neutronics_material_maker as nmm
@@ -54,7 +56,7 @@ if __name__ == "__main__":
 
     uniform_dist = openmc.stats.Box([-10, -10, -3500 / 2], [10, 10, 3500 / 2], only_fissionable=True)
     setting.source = openmc.source.Source(space=uniform_dist)
-
+    setting.run_mode = 'fixed source'
     # Tallies
     flux_tally = openmc.Tally(name='flux')
     flux_tally.scores = ['flux']
@@ -76,8 +78,15 @@ if __name__ == "__main__":
     print("xml export finished")
 
     # RUN
+    model = openmc.Model(geometry=geometry, materials=materials, tallies=tallies, plots=plots, settings=setting)
     openmc.plot_geometry(path_input='xmls/')
     # openmc.run(output=False,path_input='xmls/')
+    # Deplition
+    operator = deplete.CoupledOperator(model=model)
+    power = 1e6
+    time_steps = [1]
+    integrator = deplete.PredictorIntegrator(operator, time_steps, power, timestep_units='s')
+    integrator.integrate()
 
     # with openmc.StatePoint('statepoint.100.h5') as sp:
     #     print(sp.keff)
